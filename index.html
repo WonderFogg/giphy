@@ -3,65 +3,74 @@
 
 <head>
   <meta charset="utf-8">
-  <title>topics</title>
+  <title>giphy</title>
 </head>
 
 <body>
-  <body>
-  <button data-animal="cat">meow</button>
-  <button data-animal="dog">woof</button>
-  <button data-animal="bird">chirp</button>
-  <div id="gifs-appear-here">
-  </div>
+   
+   <button data-person="Faith">Faith</button>
+   <button data-person="Hope">Hope</button>
+   <button data-person="Love">Love</button>
+   <button data-person="Smurfs">Smurfs</button>
+   <button data-person="Colin Farrell">Colin</button>
+   <button data-person="Poptarts">Poptarts</button>
+   <button data-person="Madonna">Madonna</button>
+
+  <div id="gifs-appear-here"></div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript">
+    // Event listener for all button elements
     $("button").on("click", function() {
-      var animal = $(this).attr("data-animal");
+      // In this case, the "this" keyword refers to the button that was clicked
+      var person = $(this).attr("data-person");
+
+      // Constructing a URL to search Giphy for the name of the person who said the quote
       var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
-        animal + "&api_key=dc6zaTOxFJmzC&limit=10";
+        person + "&api_key=dc6zaTOxFJmzC&limit=10";
 
+      // Performing our AJAX GET request
       $.ajax({
-        url: queryURL,
-        method: "GET"
-      }).done(function(response) {
-        // Step 1: Run this file, click a button, and see what the response object looks like in the browser's console.
-        // Open up the data key, then open up the 0th, element. Study the keys and how the JSON is structured.
+          url: queryURL,
+          method: "GET"
+        })
+        // After the data comes back from the API
+        .done(function(response) {
+          // Storing an array of results in the results variable
+          var results = response.data;
 
-        console.log(response);
+          // Looping over every result item
+          for (var i = 0; i < results.length; i++) {
 
-        // Step 2: since the image information is inside of the data key,
-        // make a variable named results and set it equal to response.data
+            // Only taking action if the photo has an appropriate rating
+            if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
+              // Creating a div with the class "item"
+              var gifDiv = $("<div class='item'>");
 
-        // =============== put step 2 in between these dashes ==================
+              // Storing the result item's rating
+              var rating = results[i].rating;
 
-        // ========================
+              // Creating a paragraph tag with the result item's rating
+              var p = $("<p>").text("Rating: " + rating);
 
-        // for (var i = 0; i < results.length; i++) {
+              // Creating an image tag
+              var personImage = $("<img>");
 
-        // Step 3: uncomment the for loop above and the closing curly bracket below.
-        // Make a div with jQuery and store it in a variable named animalDiv.
-        // Make a paragraph tag with jQuery and store it in a variable named p.
-        // Set the inner text of the paragraph to the rating of the image in results[i].
-        // Make an image tag with jQuery and store it in a variable named animalImage.
-        // Set the image's src to results[i]'s fixed_height.url.
-        // Append the p variable to the animalDiv variable.
-        // Append the animalImage variable to the animalDiv variable.
-        // Prepend the animalDiv variable to the element with an id of gifs-appear-here.
+              // Giving the image tag an src attribute of a proprty pulled off the
+              // result item
+              personImage.attr("src", results[i].images.fixed_height.url);
 
-        // ============= put step 3 in between these dashes ======================
+              // Appending the paragraph and personImage we created to the "gifDiv" div we created
+              gifDiv.append(p);
+              gifDiv.append(personImage);
 
-        // ==================================
-
-
-
-
-
-
-
-        
-        // }
+              // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
+              $("#gifs-appear-here").prepend(gifDiv);
+            }
+          }
+        });
+    });
   </script>
-
 </body>
 
 </html>

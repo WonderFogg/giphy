@@ -13,11 +13,12 @@
     var queryURL = "http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC";
 
 
-    var topics = [ "Faith", "Hope", "Love", "Smurfy", "Colin";
+    var topics = [ "Faith", "Hope", "Love", "Smurfy", "Colin"];
     console.log(topics.lenght);
 
 
-
+      var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key=YOUR_API_KEY&limit=5");
+      xhr.done(function(data) { console.log("success got data", data); });
 
 
     $.ajax({
