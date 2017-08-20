@@ -15,6 +15,8 @@
    <button data-person="Colin Farrell">Colin</button>
    <button data-person="Poptarts">Poptarts</button>
    <button data-person="Madonna">Madonna</button>
+   <button data-person="Wonder Woman">Wonder Woman</button>
+
 
   <div id="gifs-appear-here"></div>
 
@@ -23,11 +25,11 @@
     // Event listener for all button elements
     $("button").on("click", function() {
       // In this case, the "this" keyword refers to the button that was clicked
-      var person = $(this).attr("data-person");
+      var topics = $(this).attr("data-person");
 
       // Constructing a URL to search Giphy for the name of the person who said the quote
       var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
-        person + "&api_key=dc6zaTOxFJmzC&limit=10";
+        topics + "&api_key=dc6zaTOxFJmzC&limit=10";
 
       // Performing our AJAX GET request
       $.ajax({
