@@ -10,15 +10,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript">
     // Example queryURL for Giphy API
-    var queryURL = "http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=7d4acac2b3f143d0847cfef71a707dfe&q=niagara+falls&limit=25&offset=0&rating=G&lang=en"
 
 
-    var topics = [ "Faith", "Hope", "Love", "Smurfy", "Colin"];
-    console.log(topics.lenght);
+  
+  
 
-
-      var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key=YOUR_API_KEY&limit=5");
-      xhr.done(function(data) { console.log("success got data", data); });
 
 
     $.ajax({
