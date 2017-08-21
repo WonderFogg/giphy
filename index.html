@@ -8,13 +8,18 @@
 
 <body>
    
-   <button data-person="Niagara Falls">Niagara Falls</button>
-   <button data-person="Love">Love</button>
-   <button data-person="Smurfs">Smurfs</button>
-   <button data-person="Colin Farrell">Colin</button>
-   <button data-person="Poptarts">Poptarts</button>
-   <button data-person="Madonna">Madonna</button>
-   <button data-person="Wonder Woman">Wonder Woman</button>
+<div class="jumbotron">
+  <div class="container">
+
+
+
+   <button data-name="Niagara Falls">Niagara Falls</button>
+   <button data-name="Love">Love</button>
+   <button data-name="Smurfs">Smurfs</button>
+   <button data-name="Colin Farrell">Colin</button>
+   <button data-name="Poptarts">Poptarts</button>
+   <button data-name="Madonna">Madonna</button>
+   <button data-name="Wonder Woman">Wonder Woman</button>
 
 
   <div id="gifs-appear-here"></div>
@@ -23,21 +28,19 @@
     <script type="text/javascript"> -->
     // Event listener for all button elements
     $("button").on("click", function() {
-      // In this case, the "this" keyword refers to the button that was clicked
-      var topics = $(this).attr("data-person");
+    
+      var topics = $(this).attr("data-name");
 
-      // Constructing a URL to search Giphy for the name of the person who said the quote
-      var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
-        topics + "&api_key=dc6zaTOxFJmzC&limit=10";
+      var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + topics + "&api_key=dc6zaTOxFJmzC&limit=10";
 
       // Performing our AJAX GET request
       $.ajax({
-          url: queryURL,
-          method: "GET"
+       url: queryURL, 
+       method: "GET"
         })
         // After the data comes back from the API
         .done(function(response) {
-          // Storing an array of results in the results variable
+         
           var results = response.data;
 
           // Looping over every result item
@@ -71,7 +74,10 @@
           }
         });
     });
-  </script>
+   </script>
+     </div>
+   </div>
 </body>
+
 
 </html>
