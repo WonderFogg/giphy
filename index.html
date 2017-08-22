@@ -12,7 +12,6 @@
   <div class="container">
 
 
-
    <button data-name="Grace Jones">Grace Jones</button>
    <button data-name="Niagara Falls">Niagara Falls</button>
    <button data-name="Love">Love</button>
@@ -23,16 +22,20 @@
    <button data-name="Wonder Woman">Wonder Woman</button>
 
 
-    <img src="https://api.giphy.com/v1/gifs/search?api_key=7d4acac2b3f143d0847cfef71a707dfe&q=grace+jones&limit=10&offset=0&rating=G&lang=en" data-still="https://media3.giphy.com/media/qnFrfcPyilIys/giphy_s.gif" data-animate="https://media3.giphy.com/media/qnFrfcPyilIys/200_s.gif" data-state="still" class="gif">
+<form id="yourFavs-form">
+    <label for="yourFavs-input"> Add your favorite</label>
+    <input id="yourFavs-input" type="text">
+    <input id=addFavs" type="submit" name="Submit">
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript">
+</form>
+
+
+   
+<script type="text/javascript">
     $(".gif").on("click", function() {
-      // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
+     
       var state = $(this).attr("data-state");
-      // If the clicked image's state is still, update its src attribute to what its data-animate value is.
-      // Then, set the image's data-state to animate
-      // Else set src to the data-still value
+  
       if (state === "still") {
         $(this).attr("src", $(this).attr("data-animate"));
         $(this).attr("data-state", "animate");
@@ -42,11 +45,29 @@
       }
     });
   </script>
-    
+
+   
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(".gif").on("click", function() {
+     
+      var state = $(this).attr("data-state");
+  
+      if (state === "still") {
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
+      } else {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+      }
+    });
+  </script>
+
 
 
   <div id="gifs-appear-here"></div>
-<!-- jquery -->
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript"> -->
 
@@ -62,27 +83,19 @@
        url: queryURL, 
        method: "GET"
         })
-        // After the data comes back from the API
+        
         .done(function(response) {
-         
           var results = response.data;
-
-          // Looping over every result item
           for (var i = 0; i < results.length; i++) {
-            // Only taking action if the photo has an appropriate rating
+            
             if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
-              // Creating a div with the class "item"
               var gifDiv = $("<div class='item'>");
-              // Storing the result item's rating
               var rating = results[i].rating;
-              // Creating a paragraph tag with the result item's rating
               var p = $("<p>").text("Rating: " + rating);
-              // Creating an image tag
               var personImage = $("<img>");
-              // Giving the image tag an src attribute of a proprty pulled off the
-              // result item
+              
               personImage.attr("src", results[i].images.fixed_height.url);
-              // Appending the paragraph and personImage we created to the "gifDiv" div we created
+              
               gifDiv.append(p);
               gifDiv.append(personImage);
 
