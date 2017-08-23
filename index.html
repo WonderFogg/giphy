@@ -26,10 +26,7 @@
     <label for="yourFavs-input"> Add your favorite</label>
     <input id="yourFavs-input" type="text">
     <input id=addFavs" type="submit" name="Submit">
-
 </form>
-
-
    
 <script type="text/javascript">
     $(".gif").on("click", function() {
@@ -45,9 +42,7 @@
       }
     });
   </script>
-
    
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript">
     $(".gif").on("click", function() {
@@ -63,21 +58,14 @@
       }
     });
   </script>
-
-
-
   <div id="gifs-appear-here"></div>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript"> -->
-
     // Event listener for all button elements
     $("button").on("click", function() {
     
       var topics = $(this).attr("data-name");
-
       var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + topics + "&api_key=dc6zaTOxFJmzC&limit=10";
-
       // Performing our AJAX GET request
       $.ajax({
        url: queryURL, 
@@ -111,4 +99,3 @@
 </body>
 
 
-</html>
