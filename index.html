@@ -9,26 +9,57 @@
 <body>
    
 <div class="jumbotron">
-  <div class="container">
+  
+
+<div id="favsButtons">
+   <button class="favs" data-name="Grace Jones">Grace Jones</button>
+   <button class="favs" data-name="Smurfs">Smurfs</button>
+   <button class="favs" data-name="Madonna">Madonna</button>
+   <button class="favs" data-name="Wonder Woman">Wonder Woman</button>
+</div>
 
 
-   <button data-name="Grace Jones">Grace Jones</button>
-   <button data-name="Niagara Falls">Niagara Falls</button>
-   <button data-name="Love">Love</button>
-   <button data-name="Smurfs">Smurfs</button>
-   <button data-name="Colin Farrell">Colin</button>
-   <button data-name="Poptarts">Poptarts</button>
-   <button data-name="Madonna">Madonna</button>
-   <button data-name="Wonder Woman">Wonder Woman</button>
+    <form id="addAfav-form">
+    <label for=addAfav-input>Add a new favorite topic<label>
+    <input id="addAfav-input" type="text">
+    <input id="addAfav" type="submit" name="Submit">
+    </form>
+
+   <div id="gifsArea" data-state="still"></div>
+
+    <img src="https://media2.giphy.com/media/xTsyk29oBzqBG/200.gif?fingerprint=e1bb72ff599e03fc575a486e4917b6c5" 
+    data-animate="https://media2.giphy.com/media/xTsyk29oBzqBG/200.gif?fingerprint=e1bb72ff599e03fc575a486e4917b6c5" 
+    data-still="https://media2.giphy.com/media/xTsyk29oBzqBG/200.gif?fingerprint=e1bb72ff599e03fc575a486e4917b6c5"
+    data-state="still" 
+    class="gif">
 
 
-<form id="yourFavs-form">
-    <label for="yourFavs-input"> Add your favorite</label>
-    <input id="yourFavs-input" type="text">
-    <input id=addFavs" type="submit" name="Submit">
-</form>
+    <img src="https://media1.giphy.com/media/3oEdv4rwKXAhvlmnaU/200.gif?fingerprint=e1bb72ff599e0a62636e6441772362a7"
+    data-still="https://media1.giphy.com/media/3oEdv4rwKXAhvlmnaU/200.gif?fingerprint=e1bb72ff599e0a62636e6441772362a7"
+    data-animate="https://media1.giphy.com/media/3oEdv4rwKXAhvlmnaU/200.gif?fingerprint=e1bb72ff599e0a62636e6441772362a7" 
+    data-state="still">
+  
+    
+    <img src="https://media2.giphy.com/media/BiyvXVLGRdUpG/200.gif?fingerprint=e1bb72ff599e10be53612f4549926325"
+     data-animate="https://media2.giphy.com/media/BiyvXVLGRdUpG/200.gif?fingerprint=e1bb72ff599e10be53612f4549926325"
+     data-still="https://media2.giphy.com/media/BiyvXVLGRdUpG/200.gif?fingerprint=e1bb72ff599e10be53612f4549926325"
+     data-state="still">
+
+  
+    <img src="https://media2.giphy.com/media/3oEdv1yRZQ4jtfKnx6/200.gif?fingerprint=e1bb72ff599e099d754750464d6ee9ea"
+    data-still="https://media2.giphy.com/media/3oEdv1yRZQ4jtfKnx6/200.gif?fingerprint=e1bb72ff599e099d754750464d6ee9ea" 
+    data-animate="https://media2.giphy.com/media/3oEdv1yRZQ4jtfKnx6/200.gif?fingerprint=e1bb72ff599e099d754750464d6ee9ea" 
+    data-state="still" 
+  
+
+
+
+
+
+
+</div>
    
-<script type="text/javascript">
+<script type="text/javascript"
     $(".gif").on("click", function() {
      
       var state = $(this).attr("data-state");
