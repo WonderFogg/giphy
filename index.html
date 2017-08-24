@@ -22,48 +22,47 @@
     <form id="addAfav-form">
     <label for=addAfav-input>Add a new favorite topic<label>
     <input id="addAfav-input" type="text">
-    <input id="addAfav" type="submit" name="Submit">
+    <input id="addAfav" type="Submit" name="Submit">
     </form>
 
-   <div id="gifsArea" data-state="still"></div>
+   <div id="gifsArea" data-state="still">
 
     <img src="https://media2.giphy.com/media/xTsyk29oBzqBG/200.gif?fingerprint=e1bb72ff599e03fc575a486e4917b6c5" 
     data-animate="https://media2.giphy.com/media/xTsyk29oBzqBG/200.gif?fingerprint=e1bb72ff599e03fc575a486e4917b6c5" 
     data-still="https://media2.giphy.com/media/xTsyk29oBzqBG/200.gif?fingerprint=e1bb72ff599e03fc575a486e4917b6c5"
-    data-state="still" 
+    data-state="still"
     class="gif">
+    
 
 
     <img src="https://media1.giphy.com/media/3oEdv4rwKXAhvlmnaU/200.gif?fingerprint=e1bb72ff599e0a62636e6441772362a7"
     data-still="https://media1.giphy.com/media/3oEdv4rwKXAhvlmnaU/200.gif?fingerprint=e1bb72ff599e0a62636e6441772362a7"
     data-animate="https://media1.giphy.com/media/3oEdv4rwKXAhvlmnaU/200.gif?fingerprint=e1bb72ff599e0a62636e6441772362a7" 
-    data-state="still">
+    data-state="still"
+    class="gif">
   
     
     <img src="https://media2.giphy.com/media/BiyvXVLGRdUpG/200.gif?fingerprint=e1bb72ff599e10be53612f4549926325"
      data-animate="https://media2.giphy.com/media/BiyvXVLGRdUpG/200.gif?fingerprint=e1bb72ff599e10be53612f4549926325"
      data-still="https://media2.giphy.com/media/BiyvXVLGRdUpG/200.gif?fingerprint=e1bb72ff599e10be53612f4549926325"
-     data-state="still">
+     data-state="still"
+     class="gif">
 
   
     <img src="https://media2.giphy.com/media/3oEdv1yRZQ4jtfKnx6/200.gif?fingerprint=e1bb72ff599e099d754750464d6ee9ea"
     data-still="https://media2.giphy.com/media/3oEdv1yRZQ4jtfKnx6/200.gif?fingerprint=e1bb72ff599e099d754750464d6ee9ea" 
     data-animate="https://media2.giphy.com/media/3oEdv1yRZQ4jtfKnx6/200.gif?fingerprint=e1bb72ff599e099d754750464d6ee9ea" 
-    data-state="still" 
-  
+    data-state="still"
+    class="gif">
 
-
-
-
-
-
-</div>
-   
-<script type="text/javascript"
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
     $(".gif").on("click", function() {
-     
+      // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
       var state = $(this).attr("data-state");
-  
+      // If the clicked image's state is still, update its src attribute to what its data-animate value is.
+      // Then, set the image's data-state to animate
+      // Else set src to the data-still value
       if (state === "still") {
         $(this).attr("src", $(this).attr("data-animate"));
         $(this).attr("data-state", "animate");
@@ -73,8 +72,12 @@
       }
     });
   </script>
+</body>
+
+</html>
+
    
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" </script>
   <script type="text/javascript">
     $(".gif").on("click", function() {
      
@@ -93,6 +96,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript"> -->
     // Event listener for all button elements
+    
     $("button").on("click", function() {
     
       var topics = $(this).attr("data-name");
